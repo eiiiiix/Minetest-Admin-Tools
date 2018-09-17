@@ -1,3 +1,4 @@
+--Godly Pickaxe infos
 minetest.register_tool("admincrap:pick_god", {
 	description = "Godly Pickaxe",
 	inventory_image = "godpick.png",
@@ -17,4 +18,13 @@ minetest.register_tool("admincrap:pick_god", {
 	},
 	sound = {breaks = "default_tool_breaks"},
 	groups = {flammable = 1000},
+})
+
+--Border Marker
+minetest.register_node("admincrap:marker", {
+    description = "Border Marker",
+    light_source = 15,
+    tiles = {"marker.png"},
+    groups = {cracky=1},
+    on_use = minetest.item_eat(-20) --lul idfk
 })
