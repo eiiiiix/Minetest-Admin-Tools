@@ -29,16 +29,6 @@ minetest.register_node("admincrap:marker", {
     on_use = minetest.item_eat(-20) --lul idfk
 })
 
-
-minetest.register_node("admincrap:fake", {
-	description = "Godly Pickaxe",
-	inventory_image = "godpick.png",
-	tool_capabilities = {
-		full_punch_interval = 10.0
-		},
-	on_use = minetest.chat_send_player("player1", "This is a chat message for player1")
-})
-
 --instanty kill on spawn, for when banning is boring
 minetest.register_chatcommand("softban", {
     func = function(name, param)
@@ -66,5 +56,12 @@ minetest.register_chatcommand("yesjump", {
         player:set_physics_override({
             gravity = 1.0
         })
+    end
+})
+
+--displays a link to my minetest mod discord
+minetest.register_chatcommand("eix", {
+    func = function(name, param)
+        return true, "Join Eix's Minetest Mods Discord server! https://discord.gg/V3Ymknj!"
     end
 })
