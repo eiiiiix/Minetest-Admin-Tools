@@ -28,3 +28,43 @@ minetest.register_node("admincrap:marker", {
     groups = {cracky=1},
     on_use = minetest.item_eat(-20) --lul idfk
 })
+
+
+minetest.register_node("admincrap:fake", {
+	description = "Godly Pickaxe",
+	inventory_image = "godpick.png",
+	tool_capabilities = {
+		full_punch_interval = 10.0
+		},
+	on_use = minetest.chat_send_player("player1", "This is a chat message for player1")
+})
+
+--instanty kill on spawn, for when banning is boring
+minetest.register_chatcommand("softban", {
+    func = function(name, param)
+        local player = minetest.get_player_by_name(name)
+        player:set_physics_override({
+            gravity = 10000.00
+        })
+    end
+})
+
+--no jumping allowed
+minetest.register_chatcommand("nojump", {
+    func = function(name, param)
+        local player = minetest.get_player_by_name(name)
+        player:set_physics_override({
+            gravity = 10.0
+        })
+    end
+})
+
+--allow jumping again
+minetest.register_chatcommand("yesjump", {
+    func = function(name, param)
+        local player = minetest.get_player_by_name(name)
+        player:set_physics_override({
+            gravity = 1.0
+        })
+    end
+})
